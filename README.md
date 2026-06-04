@@ -37,8 +37,8 @@ a `.env` the app manages for you.
 
 ## Tech stack
 
-Python 3.12 · PyQt6 (tray, overlay, threading) · PaddleOCR 3.5 (local OCR) ·
-mss (capture) · Pillow (crop/encode) · DeepSeek chat API over stdlib `urllib` (no SDK) ·
+Python 3.12, PyQt6 (tray, overlay, threading), PaddleOCR 3.5 (local OCR),
+mss (capture), Pillow (crop/encode), DeepSeek chat API over stdlib `urllib` (no SDK),
 PyInstaller (`onedir`) for packaging. Windows-only in practice; native hotkeys and the
 startup toggle use the Win32 API.
 
