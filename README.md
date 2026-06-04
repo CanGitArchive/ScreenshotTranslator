@@ -10,6 +10,8 @@ It's a daily-driver replacement for ShareX plus the cloud OCR/translation servic
 used to paste into, built because I wanted the whole capture → OCR → translate loop
 to happen on one keypress, locally, in well under a second after the model warms up.
 
+<img width="900" height="422" alt="screenshot-translator-demo" src="https://github.com/user-attachments/assets/a8a1a098-4e9e-4a47-9070-40971d6ed492" />
+
 ## Engineering highlights
 
 - **Three native Win32 global hotkeys** registered with `RegisterHotKey` / `WM_HOTKEY`,
