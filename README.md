@@ -1,25 +1,25 @@
 # Screenshot Translator
 
-A Windows system-tray utility that turns any region of the screen into text — or a
-translation — from a single global hotkey. Press the shortcut, drag a box over the
+A Windows system-tray utility that turns any region of the screen into text (or a
+translation) from a single global hotkey. Press the shortcut, drag a box over the
 frozen desktop, and the cropped region is run through **local PaddleOCR** and
 (optionally) the **DeepSeek** chat API. No main window, no cloud OCR, no upload of
 the image itself.
 
 It's a daily-driver replacement for ShareX plus the cloud OCR/translation services I
-used to paste into — built because I wanted the whole capture → OCR → translate loop
+used to paste into, built because I wanted the whole capture → OCR → translate loop
 to happen on one keypress, locally, in well under a second after the model warms up.
 
 ## Engineering highlights
 
-- **Three native Win32 global hotkeys** registered with `RegisterHotKey` / `WM_HOTKEY`
-  — robust where a generic key-hook would leave modifiers stuck.
+- **Three native Win32 global hotkeys** registered with `RegisterHotKey` / `WM_HOTKEY`,
+  robust where a generic key-hook would leave modifiers stuck.
 - **Local OCR runs off the UI thread** in a persistent PaddleOCR worker; the translation
   call has its own thread, so the tray never blocks.
 - **DPI-aware capture** keeps crops pixel-correct on scaled and multi-monitor displays.
-- **Self-seeding model cache** — OCR weights load locally at runtime, never committed.
+- **Self-seeding model cache**: OCR weights load locally at runtime, never committed.
 
-The [CHANGELOG](CHANGELOG.md) is the real engineering log — the DPI-crop bug, the
+The [CHANGELOG](CHANGELOG.md) is the real engineering log: the DPI-crop bug, the
 hotkey rewrite, and the frozen-capture trick are written up there.
 
 ## What each hotkey does
@@ -39,7 +39,7 @@ a `.env` the app manages for you.
 
 Python 3.12 · PyQt6 (tray, overlay, threading) · PaddleOCR 3.5 (local OCR) ·
 mss (capture) · Pillow (crop/encode) · DeepSeek chat API over stdlib `urllib` (no SDK) ·
-PyInstaller (`onedir`) for packaging. Windows-only in practice — native hotkeys and the
+PyInstaller (`onedir`) for packaging. Windows-only in practice; native hotkeys and the
 startup toggle use the Win32 API.
 
 ## Run it
@@ -64,4 +64,4 @@ menu is written straight back to this file.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT: see [LICENSE](LICENSE).
