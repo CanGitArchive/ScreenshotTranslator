@@ -10,7 +10,7 @@ It's a daily-driver replacement for ShareX plus the cloud OCR/translation servic
 used to paste into, built because I wanted the whole capture → OCR → translate loop
 to happen on one keypress, locally, in well under a second after the model warms up.
 
-<img width="900" height="422" alt="screenshot-translator-demo" src="https://github.com/user-attachments/assets/a8a1a098-4e9e-4a47-9070-40971d6ed492" />
+<img width="1000" height="469" alt="screenshot-translator-demo" src="https://github.com/user-attachments/assets/f05e0c9d-39e2-411e-af1c-218f4e559e6c" />
 
 ## Engineering highlights
 
