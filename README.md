@@ -12,19 +12,15 @@ to happen on one keypress, locally, in well under a second after the model warms
 
 ## Engineering highlights
 
-- **Native Win32 global hotkeys** via `RegisterHotKey` + a `WM_HOTKEY`
-  `QAbstractNativeEventFilter` — deliberately *not* the `keyboard` library's low-level
-  hook, which could leave `Ctrl`/`Shift`/`Alt` logically stuck. Three independent
-  hotkeys route to three pipelines.
-- **Local OCR, off the UI thread.** PaddleOCR runs in a persistent `QThread` worker
-  initialized once and reused across captures; the DeepSeek HTTP call lives on its own
-  worker too, so the tray UI never blocks.
-- **DPI-aware capture.** The selection overlay paints a *frozen* full-desktop grab and
-  converts widget-local selection coordinates into image pixels, so crops stay correct
-  on scaled / multi-monitor displays.
-- **Self-contained model cache.** Bundled PaddleOCR models are seeded into the user's
-  PaddleX cache on first run; weights are never committed — they download/seed at
-  runtime. See [CHANGELOG.md](CHANGELOG.md) for the deeper engineering log.
+- **Three native Win32 global hotkeys** registered with `RegisterHotKey` / `WM_HOTKEY`
+  — robust where a generic key-hook would leave modifiers stuck.
+- **Local OCR runs off the UI thread** in a persistent PaddleOCR worker; the translation
+  call has its own thread, so the tray never blocks.
+- **DPI-aware capture** keeps crops pixel-correct on scaled and multi-monitor displays.
+- **Self-seeding model cache** — OCR weights load locally at runtime, never committed.
+
+The [CHANGELOG](CHANGELOG.md) is the real engineering log — the DPI-crop bug, the
+hotkey rewrite, and the frozen-capture trick are written up there.
 
 ## What each hotkey does
 
@@ -55,10 +51,8 @@ py -3.12 -m venv .venv
 ```
 
 The app starts in the system tray (right-click for the menu, left-click for a quick
-OCR capture). On first launch it writes a config `.env` under `DATA/ScreenshotTranslator/`;
-to use the translate hotkey, set `DEEPSEEK_API_KEY` there (or via the tray menu). All
-captures, extracted text, translations, logs, and the model cache stay under that
-gitignored `DATA/` folder — nothing you capture ever lands in the repo.
+OCR capture). To use the translate hotkey, set `DEEPSEEK_API_KEY` via the tray menu or
+in the config file (see below).
 
 ## Configuration
 
