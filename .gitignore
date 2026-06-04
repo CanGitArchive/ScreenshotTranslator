@@ -1,0 +1,43 @@
+# ---------------------------------------------------------------------------
+# Runtime state, output, secrets, and personal data
+# Everything the app writes lives under DATA/<App>/ and must never be tracked:
+# captured screenshots, OCR text, translations, logs, the .env (API key), and
+# the seeded PaddleOCR model cache (weights download/seed at runtime).
+# ---------------------------------------------------------------------------
+DATA/
+
+# Secrets / environment
+*.env
+.env
+
+# Local OCR model weights / caches (never commit model binaries)
+*.pdiparams
+*.pdmodel
+*.onnx
+*.safetensors
+*.pt
+*.bin
+official_models/
+.paddlex/
+
+# Python virtual environment
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Build artifacts
+build/
+dist/
+*.spec
+*.exe
+
+# Editor / harness config (personal)
+.claude/
+*.code-workspace
+.vscode/
+.idea/
+
+# OS noise
+Thumbs.db
+.DS_Store

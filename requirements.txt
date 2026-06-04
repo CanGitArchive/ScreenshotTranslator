@@ -1,0 +1,10 @@
+PyQt6
+python-dotenv
+mss
+Pillow
+keyboard
+paddleocr==3.5.0
+paddlepaddle==3.2.2
+paddlex[ocr]==3.5.1
+lxml
+pyinstaller
