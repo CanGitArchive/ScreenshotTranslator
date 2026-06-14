@@ -7,7 +7,7 @@ frozen desktop, and the cropped region is run through **local PaddleOCR** and
 the image itself.
 
 It's a daily-driver replacement for ShareX plus the cloud OCR/translation services I
-used to paste into, built because I wanted the whole capture → OCR → translate loop
+used to paste into, built because I wanted the whole capture -> OCR -> translate loop
 to happen on one keypress, locally, in well under a second after the model warms up.
 
 <img width="1000" height="469" alt="screenshot-translator-demo" src="https://github.com/user-attachments/assets/f05e0c9d-39e2-411e-af1c-218f4e559e6c" />
@@ -29,8 +29,8 @@ hotkey rewrite, and the frozen-capture trick are written up there.
 | Hotkey (default)     | Pipeline                              | Output                                   |
 | -------------------- | ------------------------------------- | ---------------------------------------- |
 | `Ctrl + PrintScreen` | Region screenshot only                | PNG saved + copied to clipboard          |
-| `Shift + PrintScreen`| Screenshot → OCR                      | Text popup + `.txt` saved + text copied  |
-| `Alt + PrintScreen`  | Screenshot → OCR → DeepSeek translate | Translation popup + `.txt` saved + copied|
+| `Shift + PrintScreen`| Screenshot -> OCR                      | Text popup + `.txt` saved + text copied  |
+| `Alt + PrintScreen`  | Screenshot -> OCR -> DeepSeek translate | Translation popup + `.txt` saved + copied|
 
 The tray menu adds an OCR-language picker, an in-app hotkey editor, "show/copy last
 result", a run-at-Windows-startup toggle, output-folder shortcuts, and a debug submenu

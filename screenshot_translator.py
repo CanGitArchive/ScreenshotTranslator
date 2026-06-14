@@ -1917,9 +1917,9 @@ class TrayScreenshotTranslator(QObject):
         self.tray.setIcon(self.app_icon)
         self.tray.setToolTip(
             f"{APP_NAME} v{APP_VERSION}\n"
-            f"{get_hotkey_screenshot_only()} → screenshot only\n"
-            f"{get_hotkey_ocr_only()} → OCR only\n"
-            f"{get_hotkey_translate()} → OCR + DeepSeek translation\n"
+            f"{get_hotkey_screenshot_only()} -> screenshot only\n"
+            f"{get_hotkey_ocr_only()} -> OCR only\n"
+            f"{get_hotkey_translate()} -> OCR + DeepSeek translation\n"
             f"OCR language: {get_lang_label()}"
         )
 
@@ -2145,9 +2145,9 @@ class TrayScreenshotTranslator(QObject):
     def update_tray_tooltip(self) -> None:
         self.tray.setToolTip(
             f"{APP_NAME} v{APP_VERSION}\n"
-            f"{get_hotkey_screenshot_only()} → screenshot only\n"
-            f"{get_hotkey_ocr_only()} → OCR only\n"
-            f"{get_hotkey_translate()} → OCR + DeepSeek translation\n"
+            f"{get_hotkey_screenshot_only()} -> screenshot only\n"
+            f"{get_hotkey_ocr_only()} -> OCR only\n"
+            f"{get_hotkey_translate()} -> OCR + DeepSeek translation\n"
             f"OCR language: {get_lang_label()}"
         )
 
@@ -2293,7 +2293,7 @@ class TrayScreenshotTranslator(QObject):
             ok = bool(user32.RegisterHotKey(None, int(hotkey_id), int(modifiers), int(vk)))
             if ok:
                 self.native_hotkey_ids[int(hotkey_id)] = target
-                self.hotkey_registered_descriptions.append(f"{combo} → {description} [native]")
+                self.hotkey_registered_descriptions.append(f"{combo} -> {description} [native]")
             else:
                 err = ctypes.get_last_error()
                 self.show_message(
